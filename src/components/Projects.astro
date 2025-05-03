@@ -1,0 +1,173 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import React from "./icons/React.astro"
+import Node from "./icons/Node.astro"
+import Mysql from "./icons/Mysql.astro"
+import SQL from "./icons/SQLServer.astro"
+import Link from "./icons/Link.astro"
+import Python from "./icons/Python.astro"
+import FastApi from "./icons/FastApi.astro"
+import LinkButton from "./LinkButton.astro"
+import Typescript from "./icons/Typescript.astro"
+import Flutter from "./icons/Flutter.astro"
+import Firebase from "./icons/Firebase.astro"
+import Vite from "./icons/Vite.astro"
+import { Image } from 'astro:assets';
+import RLPharma from "../../public/images/rlpharma.png"
+import BRC from "../../public/images/BRC.png"
+import NotifyHome from "../../public/images/Notify-Home.jpg"
+
+
+const TAGS = {
+    NODE:{
+        name:"Node.js",
+        class:"bg-white text-black",
+        icon:Node
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+
+    MYSQL: {
+        name: "MySQL",
+        class: "bg-blue-200 text-white-200",
+        icon: Mysql,
+    },
+
+
+    REACT: {
+        name: "React",
+        class: "bg-sky-700 text-white",
+        icon: React
+    },
+    PYTHON: {
+        name: "Python",
+        class: "bg-white text-blue-700",
+        icon: Python
+    },
+    FASTAPI: {
+        name: "FastAPI",
+        class: "bg-white text-green-600",
+        icon: FastApi
+    },
+    SQL: {
+        name: "SQL Server",
+        class: "bg-white text-black",
+        icon: SQL
+    },
+    TS: {
+        name: "Typescript",
+        class: "bg-blue-200 text-[#003159]",
+        icon: Typescript
+    },
+    VITE:{
+        name: "Vite",
+        class: "bg-purple-400 text-white",
+        icon: Vite
+    },
+    Flutter:{
+        name: "Flutter",
+        class: "bg-blue-500 text-white",
+        icon: Flutter
+    },
+    FIREBASE:{
+        name: "Firebase",
+        class: "bg-blue-500 text-white",
+        icon: Firebase
+    }
+
+
+}
+const PROJECTS = [
+    {
+        title: "Sales Order Management System with SAP B1 Integration",
+        description:
+            "Designed and developed a web-based sales order management " +
+            "system that integrates with SAP B1 Service Layer to replicate and " +
+            "extend its sales order modal. This solution enables businesses " +
+            "to manage their sales operations through a custom web interface while maintaining " +
+            "synchronization with their SAP B1 system, effectively reducing the need for additional SAP B1 licenses.",
+        github: "https://github.com/ElkinV/SapB1OrdersApp",
+        image: RLPharma,
+        tags: [TAGS.TS,TAGS.VITE,TAGS.NODE, TAGS.TAILWIND],
+    },
+    {
+        title: "People Counting Project - Real-Time Transmission API",
+        description:
+            "Developed a real-time streaming API for people counting using \n" +
+            "Hanwha cameras, employing Server-Sent Events to continuously \n" +
+            "update the database and monitor the flow of people at specific \n" +
+            "locations. Implemented a Proxy pattern in the ProxyDB class to \n" +
+            "manage the connection to the database securely and efficiently.",
+        github: "https://github.com/ElkinV/BRC-Project",
+        image: BRC,
+        tags: [TAGS.PYTHON,TAGS.FASTAPI, TAGS.SQL],
+    },
+    {
+        title: "Notify Home",
+        description:
+            "Notify_Home emerges as a comprehensive technological solution to the challenge of home equipment maintenance. Our system focuses on preventing unexpected appliance failures through proactive monitoring and expert advice.",
+        link: "",
+        github: "https://github.com/ElkinV/Notify-Hogar",
+        image: NotifyHome,
+        tags: [TAGS.Flutter, TAGS.PYTHON, TAGS.FASTAPI, TAGS.FIREBASE],
+    },
+
+
+
+]
+---
+
+<div class="flex flex-col w-full gap-y-16">
+    {
+        PROJECTS.map(({ image, title, description, tags, link, github }) => (
+                <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-xl lg:border lg:border-white-800 lg:hover:border-white-700 lg:hover:bg-gray-800/50">
+                            <Image alt=`Imagen de Proyecto ${title}` class="object-fill object-top w-full h-auto" loading="eager" src={image} />
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 md:max-w-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                            {title}
+                        </h3>
+                        <div class="flex flex-wrap mt-2">
+                            <ul class="flex flex-row mb-2 gap-x-2">
+                                {tags.map((tag) => (
+                                        <li>
+              <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                  {tag.name}
+              </span>
+                                        </li>
+                                ))}
+                            </ul>
+
+                            <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+                            <footer class="flex items-end justify-start mt-4 gap-x-4">
+                                {github && (
+                                        <LinkButton href={github}>
+                                            <GitHub class="size-6" />
+                                            Code
+
+                                        </LinkButton>
+                                )}
+                                {link && (
+                                        <LinkButton href={link}>
+                                            <Link class="size-4" />
+                                            Preview
+                                        </LinkButton>
+                                )}
+                            </footer>
+                        </div>
+                    </div>
+                </article>
+        ))
+    }
+</div>

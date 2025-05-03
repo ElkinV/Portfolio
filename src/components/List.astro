@@ -1,0 +1,101 @@
+---
+import ListItem from "./ListItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: "July 2024 - Actually",
+        title: "Developer",
+        company: "RLPharma",
+        description:
+            "Development of web and mobile solutions, process optimization through automation, and maintenance of security and continuity plans. Responsible for creating APIs and internal services, as well as providing IT support to ensure service continuity.",
+    },
+    {
+        date: "March 2024 - Actually",
+        title: " Member of the mobile development research seedbed",
+        company: "Universidad de Cartagena",
+        description:
+            "Simulation and analysis of the integration between experimental IP-based mobile protocols in ad-hoc networks",
+        link: "https://www.unicartagena.edu.co/"
+    }
+]
+
+const PROJECTS = [
+    {
+        date: "2023",
+        title: "Water Quality Measurement System Web Site",
+        company: "Academic Project",
+        description:
+            "Designed, development of a beta version of a web-based water \n" +
+            "quality measurement system. This system enabled monitoring and \n" +
+            "analysis of water quality parameters for pools.",
+    },
+    {
+        date: "2023",
+        title: "API de Conteo de Personas en Tiempo Real",
+        company: "Proyecto Personal",
+        description:
+            "Desarrollo de API de streaming en tiempo real para conteo de personas con cámaras Hanwha, utilizando Server-Sent Events para actualizar continuamente la base de datos. Tech Stack: FastAPI, SSE, SQL Server.",
+    }
+]
+
+const STUDIES = [
+    {
+        date: "Octubre 2020 - Actually",
+        title: "Computer Science",
+        company: "",
+        description: "Universidad de Cartagena",
+    },
+    {
+        date: "2024",
+        title: "Continuing education in software development",
+        company: "",
+        description:
+            "Platzi, Udemy, FreeCodeCamp",
+    },
+    {
+        date: "2024",
+        title: "AWS Cloud Foundations",
+        company: "",
+        description:
+            "AWS Academy",
+    }
+]
+
+let {typeView} = Astro.props
+---
+
+{(typeView == "experience") &&
+<ol class="relative mt-16">
+    {
+        EXPERIENCE.map((experience) => (
+                <li class="">
+                    <ListItem {...experience} />
+                </li>
+        ))
+    }
+</ol>
+    }
+
+{(typeView == "projects") &&
+<ol class="relative mt-16">
+    {
+        PROJECTS.map((project) => (
+                <li class="">
+                    <ListItem {...project} />
+                </li>
+        ))
+    }
+</ol>
+    }
+
+{(typeView == "studies") &&
+<ol class="relative mt-16">
+    {
+        STUDIES.map((studies) => (
+                <li class="">
+                    <ListItem {...studies} />
+                </li>
+        ))
+    }
+</ol>
+    }

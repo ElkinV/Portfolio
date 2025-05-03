@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+import Briefcase from "../components/icons/Briefcase.astro"
+import CodeIcon from "../components/icons/Code.astro"
+import Chem from "../components/icons/Chem.astro"
+import List from "../components/List.astro"
+import Projects from "../components/Projects.astro"
+import Tecnologys from "../components/Tecnologys.astro"
+import SectionContainer from "../components/SectionContainer.astro"
+import Education from  "../components/icons/Education.astro"
+import Hero from "../components/Hero.astro"
+---
+
+<Layout
+  title="Elkin Vasquez"
+  description="Porfolio hecho para mostrar al mundo mis habilidades y proyectos"
+>
+  <main class="px-2 w-screen" id="aboutme">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+      </slot>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
+    <SectionContainer id="experience">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <Briefcase class="size-8" />
+        Experience
+      </h2>
+      <List typeView={"experience"}/>
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <CodeIcon class="size-7" />
+        Projects
+      </h2>
+      <Projects />
+    </SectionContainer>
+    <SectionContainer id="studies">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <Education class="size-8" />
+        Studies
+      </h2>
+      <List  typeView={"studies"}/>
+    </SectionContainer>
+    <SectionContainer id="tecnologias">
+      <h2
+      class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+    >
+      <Chem class="size-7" />
+      Skills
+    </h2>
+    <Tecnologys/>
+    </SectionContainer>
+   
+  </div>
+  </main>
+</Layout>

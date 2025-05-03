@@ -1,0 +1,65 @@
+---
+const personalImageAlt = "Elkin Vasquez"
+import Badge from "../components/Badge.astro"
+import { Image } from "astro:assets"
+import LinkedInIcon from "../components/icons/LinkedIn.astro"
+import DownloadCVIcon from "../components/icons/DownloadCV.astro"
+import GithubIcon from "../components/icons/GitHub.astro"
+import SocialPill from "../components/SocialPill.astro"
+import profileImage from "/public/images/Elkin-V.webp"
+---
+
+<div class="max-w-xl flex mx-auto flex-wrap text-left">
+  <div class="flex gap-4 mb-4">
+    <Image
+        class="rounded-full shadow-lg"
+        src={profileImage}
+        alt={personalImageAlt}
+        width={190}
+        height={190}
+        format="webp" />
+    <a
+      href="https://www.linkedin.com/in/elkin-vasquez-rivera/"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+      <Badge>Available for Work</Badge>
+    </a>
+  </div>
+  <div>
+    <h1
+    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+  >
+      Hi! I am Elkin Vasquez
+  </h1>
+  <span class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 blue-500 to-blue-800 [background-size:_200%_200%] [animation:_gradient-animation_3s_infinite]">
+    Computer Science Engineer.
+  </span>
+  <p
+    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-blue-400 [&>strong]:text-blue-600 [&>strong]:font-semibold dark:text-gray-300"
+  >
+    <p class ="mt-6 text-xl text-gray-800 dark:[&>strong]:text-blue-400 [&>strong]:text-blue-600 [&>strong]:font-semibold dark:text-gray-300">
+      I am a Computer Science Engineer with hands-on experience in web application and API development. Currently  working in projects that allow me to apply my technical knowledge to real-world solutions.
+    </p>
+    <p class ="mt-6 text-xl text-gray-800 dark:[&>strong]:text-blue-400 [&>strong]:text-blue-600 [&>strong]:font-semibold dark:text-gray-300">
+      <strong>My enthusiasm for technology</strong> has led me to explore different areas of software development, from API design and implementation to web and mobile application development. I am characterized by my ability to adapt quickly to new technologies and my commitment to delivering efficient and scalable solutions.
+    </p>
+  <nav class="flex flex-wrap gap-4 mt-8">
+    
+    <SocialPill href="https://www.linkedin.com/in/elkin-vasquez-rivera">
+      <LinkedInIcon class="size-5" />
+      LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/ElkinV">
+      <GithubIcon class="size-5" />
+      Github
+    </SocialPill>
+    <SocialPill href="/files/Resume-Elkin Vasquez.pdf">
+      <DownloadCVIcon class="size-5" />
+      Download Resume
+    </SocialPill>
+  </nav>
+  </div>
+  
+</div>
