@@ -9,6 +9,6 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   integrations: [tailwind(), robotsTxt(), react()],
   output: "server",
-  site: "https://luis-julio.netlify.app",
+  site: "",
   adapter: netlify()
 });
